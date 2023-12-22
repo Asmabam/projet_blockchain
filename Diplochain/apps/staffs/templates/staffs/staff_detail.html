@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block content-header %}
+<div class="card-header">
+  <div class="card-tools">
+    <a href="{% url 'staff-update' object.id %}" class="btn btn-tool">
+      <i class="fas fa-edit"></i>
+    </a>
+    <a href="{% url 'staff-delete' object.id %}" class="btn btn-tool">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+</div>
+{% endblock content-header %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-sm-4">
+        <div>
+          <h2>{{ object }} </h2>
+          <h6>{{ object.identifiant }} </h6>
+          <h6>{{ object.get_gender_display }} </h6>
+          <h6>{{ object.current_status }} </h6>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div>
+          <div class="form-group border-bottom row">
+            <label class="col">
+              Date de naissance
+            </label>
+            <div class="col">
+              {{ object.date_of_birth }}
+            </div>
+          </div>
+
+          <div class="form-group border-bottom row">
+            <label class="col">
+               Numéro de téléphone
+            </label>
+            <div class="col">
+              {{ object.mobile_number}}
+            </div>
+          </div>
+
+          <div class="form-group border-bottom row">
+            <label class="col">
+              Addresse mail
+            </label>
+            <div class="col">
+              {{ object.address }}
+            </div>
+          </div>
+          <div class="form-group border-bottom row">
+            <label class="col">
+              Commentaire
+            </label>
+            <div class="col">
+              {{ object.others }}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+{% endblock content %}

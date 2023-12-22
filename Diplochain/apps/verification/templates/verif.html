@@ -1,0 +1,26 @@
+{% extends 'base3.html' %}
+
+
+{% block title %}
+
+Vérification des diplomes
+
+{% endblock title %}
+
+
+{% block content %}
+
+<form action="{% url 'veri_fication' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  {% include 'corecode/form_snippet.html' %}
+
+  {% if object %}
+    <input type="submit" class="btn btn-info" value="mettre à jour" >
+  {% else %}
+    <input type="submit" class="btn btn-info" value="Enregistrer">
+  {% endif %}
+</form>
+
+
+{% endblock content %}

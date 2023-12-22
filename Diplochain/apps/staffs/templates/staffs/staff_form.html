@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+  {% if object %}
+    Mettre à jour {{ object }}
+  {% else %}
+    Ajouter un nouveau staff
+  {% endif %}
+
+{% endblock title %}
+
+
+{% block content %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+  {% include 'corecode/form_snippet.html' %}
+
+  {% if object %}
+    <input type="submit" class="btn btn-primary" value="enregistrement du mise à jour">
+  {% else %}
+    <input type="submit" class="btn btn-primary" value="Enregistrer">
+  {% endif %}
+</form>
+
+
+{% endblock content %}
